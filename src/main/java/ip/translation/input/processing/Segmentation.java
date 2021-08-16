@@ -1,41 +1,62 @@
 import java.util.LinkedList;
+import java.util.ArrayList;
 /**
- * Class responsible for processing of the user input.
+ * Utility class responsible for the processing of the user input.
  *
- * @return      
- * */
+ */
 public final class Segmentation {
-   
+    
+    /**
+     * Constructor
+     */
     private Segmentation() {}
 
     public static void main(String[] args) {
         segment("192.168.1.1"); 
     }
 
+    /**
+     * Divides user input into four segments, removes the dots and 
+     * populates integer LinkedList
+     * 
+     * @param input     user's input
+     * @return          list of segments, as integers
+     */
     static LinkedList<Integer> segment(String input) {
         char[] arrayInput = input.toCharArray();
-        LinkedList<Integer> segments = new LinkedList<>(); 
+        LinkedList<Integer> segments = new LinkedList<>();              // final list of segments
 
-       
-        char[] buffer = new char[3]; 
-        for(int i = 0, s_index = 0; i < arrayInput.length; i++) {
+        ArrayList<Character> buffer = new ArrayList<>();                // data buffer for each segment 
+        for(int i = 0; i < arrayInput.length; i++) {
+            boolean lastSegment = (i == (arrayInput.length - 1));
 
-            if(arrayInput[i] == '.') {
+            if(arrayInput[i] == '.' || lastSegment ) {
 
-                buffer = new char[3];
-                s_index = 0;
+                if(lastSegment) {                                       // case for the last segment
+                   buffer.add(arrayInput[i]);
+                }       
+
+                Character[] arr = new Character[buffer.size()];         // cast an ArrayLink to regular array
+                arr = buffer.toArray(arr);
+
+                segments.add(charArrayToInteger(arr));
+                buffer = new ArrayList<>();                             // clear the buffer
 
             } else {
-                buffer[s_index] = arrayInput[i];
-                s_index++;          
+                buffer.add(arrayInput[i]);
             }
 
         }            
-
-       return segments; 
+        return segments; 
     }
 
-    public static Integer charArrayToInteger(char[] array) {
+    /**
+     * Converts an array of chars into int
+     *
+     * @ param array    array, which is to be converted
+     * @return          integer, derived from the array of chars
+     */
+    public static Integer charArrayToInteger(Character[] array) {
         int result = 0;
 
         for(int i = 0; i < array.length; i++) {
