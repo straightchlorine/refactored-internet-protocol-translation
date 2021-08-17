@@ -1,3 +1,5 @@
+package ip.translation.input.processing;
+
 import java.util.LinkedList;
 import java.util.ArrayList;
 /**
