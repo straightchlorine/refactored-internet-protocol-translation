@@ -5,3 +5,5 @@ subnet mask, broadcast address, number of possible hosts along with its binary i
 
 Another function is calculating IP addresses of different subnets created in a given network and
 displaying mentioned earlier parameters for them as well.
+
+The program itself will be completely altered - both the structure and the way it works.
