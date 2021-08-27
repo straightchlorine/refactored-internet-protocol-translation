@@ -2,9 +2,12 @@ package ip.translation.input.processing;
 
 import java.util.LinkedList;
 import java.util.ArrayList;
+
 /**
  * Utility class responsible for the processing of the user input.
  *
+ * Divides given address into segments and converts them into
+ * Integers.
  */
 public final class Segmentation {
     
@@ -24,7 +27,7 @@ public final class Segmentation {
      * @param input     user's input
      * @return          list of segments, as integers
      */
-    static LinkedList<Integer> segment(String input) {
+    public static LinkedList<Integer> segment(String input) {
         char[] arrayInput = input.toCharArray();
         LinkedList<Integer> segments = new LinkedList<>();              // final list of segments
 
@@ -61,13 +64,12 @@ public final class Segmentation {
     public static Integer charArrayToInteger(Character[] array) {
         int result = 0;
 
-        for(int i = 0; i < array.length; i++) {
-            int digit = array[i] - '0';
+        for (Character character : array) {
+            int digit = character - '0';
             result *= 10;
             result += digit;
         }
 
         return result;
     }
-
 }
