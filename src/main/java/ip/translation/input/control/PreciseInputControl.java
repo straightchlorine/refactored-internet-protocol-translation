@@ -1,6 +1,5 @@
 package ip.translation.input.control;
 
-import ip.translation.input.processing.Segmentation;
 import ip.translation.input.exceptions.SegmentValueException;
 
 import java.util.List;
@@ -14,14 +13,11 @@ import java.util.List;
 public final class PreciseInputControl {
 
     /**
-     * Contructor
+     * Constructor
      */
-    private Segmentation() {}
+    private PreciseInputControl() {}
 
-    public static void main(String[] args) {
-        String testIP = "192.1688.1.1";
-        validate(Segmentation.segment(testIP));
-    }
+    public static void main(String[] args) {}
 
     /**
      * Method iterates over the list of segments and checks if each of 
