@@ -7,6 +7,10 @@ import ip.translation.input.control.InitialInputControl;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/**
+ * Utility class, which reads input from user, verfifies it and returns 
+ * processed input, that is LinkedList of segments.
+ */
 public final class InputModule {
     
     /**
