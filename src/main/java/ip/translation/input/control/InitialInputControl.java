@@ -34,6 +34,7 @@ public final class InitialInputControl {
      * Employs try-catch and throws an adequate exception.
      *
      * @param input     user input
+     * @return          true, if the validation
      */
     public static boolean validate(String input) {
         try {
@@ -64,8 +65,9 @@ public final class InitialInputControl {
 
     /**
      * Function counting each cell in the array, while resetting the counter
-     * if and only if the current character is a dot. If counter exceeds 
-     * the required value, loop breaks.
+     * if and only if the current character is a dot.
+     *
+     * If counter exceeds the required value, loop breaks.
      *
      * @param input     user input
      * @return          true, if validation succeeded
@@ -84,7 +86,13 @@ public final class InitialInputControl {
 
         return true;
     }
-
+    
+    /**
+     * Convenience method.
+     *
+     * @param input     user input
+     * @return          true, if the input matches the pattern i.e. consists only of digits 0-9 and dots
+     */
     private static boolean validatePattern(String input) {
         return Pattern.matches("(([0-9]+)\\.)+([0-9]+)", input);
     }
