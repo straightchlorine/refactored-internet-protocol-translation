@@ -15,7 +15,8 @@ public final class Segmentation {
      * Constructor
      */
     private Segmentation() {}
-
+    
+    // test
     public static void main(String[] args) {
         segment("192.168.1.1"); 
     }
@@ -69,7 +70,6 @@ public final class Segmentation {
             result *= 10;
             result += digit;
         }
-
         return result;
     }
 }
